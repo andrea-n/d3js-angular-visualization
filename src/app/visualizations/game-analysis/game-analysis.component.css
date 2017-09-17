@@ -1,0 +1,15 @@
+/* chart properties */
+.chart { margin: 5vh auto; width: 1000px; }
+
+/* axes */
+.axis .tick line { stroke: transparent; }
+.axis .domain { stroke: transparent; }
+
+/* timeline */
+.timeline { stroke: #2f2f2f; }
+
+/* icons */
+.icon, .events { font-family: 'FontAwesome'; }
+
+/* time */
+svg .time { font-size: 2.5em; }

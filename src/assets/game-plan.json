@@ -1,0 +1,82 @@
+{
+	"keys" : ["level1", "level2", "level3", "level4"],
+	"teams" : [
+		{
+			"team" : "Team 1",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 2",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 3",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 4",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 5",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 6",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 7",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 8",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 9",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 10",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		},
+		{
+			"team" : "Team 11",
+			"level1" : 600,
+			"level2" : 1200,
+			"level3" : 1000,
+			"level4" : 1400
+		}
+	]
+}

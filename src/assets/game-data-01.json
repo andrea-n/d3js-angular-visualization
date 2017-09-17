@@ -1,0 +1,105 @@
+{
+	"time" : "0",
+	"keys" : ["level1", "level2", "level3", "level4"],
+	"teams" : [
+		{
+			"team" : "Team 1",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 2",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 3",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 4",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 5",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 6",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 7",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 8",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 9",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 10",
+			"level1" : "working",
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 11",
+			"level1" : null,
+			"level2" : null,
+			"level3" : null,
+			"level4" : null,
+			"events" : [
+			]
+		}
+	]
+}

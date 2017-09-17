@@ -1,0 +1,143 @@
+{
+	"time" : "3500",
+	"keys" : ["level1", "level2", "level3", "level4"],
+	"teams" : [
+		{
+			"team" : "Team 1",
+			"level1" : 400,
+			"level2" : 1000,
+			"level3" : 1200,
+			"level4" : "working",
+			"events" : [
+				{
+					"type" : "hint",
+					"name" : "Hint 1",
+					"time" : 250
+				},
+				{
+					"type" : "skip",
+					"name" : "Level skipped",
+					"time" : 400
+				}
+
+			]
+		},
+		{
+			"team" : "Team 2",
+			"level1" : 450,
+			"level2" : 1110,
+			"level3" : 900,
+			"level4" : "working",
+			"events" : [
+				{
+					"type" : "hint",
+					"name" : "Hint 1",
+					"time" : 300
+				},
+				{
+					"type" : "hint",
+					"name" : "Hint 3",
+					"time" : 1700
+				}
+
+			]
+		},
+		{
+			"team" : "Team 3",
+			"level1" : 500,
+			"level2" : 800,
+			"level3" : 1400,
+			"level4" : "working",
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 4",
+			"level1" : 480,
+			"level2" : 1400,
+			"level3" : 800,
+			"level4" : "working",
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 5",
+			"level1" : 800,
+			"level2" : 2100,
+			"level3" : "working",
+			"level4" : null,
+			"events" : [
+				{
+					"type" : "solution",
+					"name" : "Solution 1",
+					"time" : 800
+				},
+				{
+					"type" : "skip",
+					"name" : "Level skipped",
+					"time" : 1850
+				}
+
+			]
+		},
+		{
+			"team" : "Team 6",
+			"level1" : 550,
+			"level2" : 1120,
+			"level3" : 1450,
+			"level4" : "working",
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 7",
+			"level1" : 400,
+			"level2" : 1150,
+			"level3" : "working",
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 8",
+			"level1" : 580,
+			"level2" : 1400,
+			"level3" : "working",
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 9",
+			"level1" : 300,
+			"level2" : 800,
+			"level3" : 1200,
+			"level4" : "working",
+			"events" : [
+			{
+					"type" : "hint",
+					"name" : "Hint 3",
+					"time" : 1900
+				}
+			]
+		},
+		{
+			"team" : "Team 10",
+			"level1" : 558,
+			"level2" : 1350,
+			"level3" : "working",
+			"level4" : null,
+			"events" : [
+			]
+		},
+		{
+			"team" : "Team 11",
+			"level1" : 936,
+			"level2" : 890,
+			"level3" : "working",
+			"level4" : null,
+			"events" : [
+			]
+		}
+	]
+}
