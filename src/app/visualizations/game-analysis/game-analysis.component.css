@@ -1,5 +1,5 @@
 /* chart properties */
-.chart { margin: 5vh auto; width: 1000px; }
+.chart { margin: 5vh auto; width: 1000px; font-family: 'Source Sans Pro', sans-serif; }
 
 /* axes */
 .axis .tick line { stroke: transparent; }
@@ -12,4 +12,4 @@
 .icon, .events { font-family: 'FontAwesome'; }
 
 /* time */
-svg .time { font-size: 2.5em; }
+.time { font-size: 2.5em; }
