@@ -42,7 +42,7 @@ export class GameAnalysisComponent implements OnInit {
 
 		var fileIndex: number = 2;
 		setInterval(function () {
-			if(fileIndex<=25) {
+			if(fileIndex<=20) {
 				this.loadData('assets/user_events_log'+fileIndex+'.csv');
 				fileIndex++;
 			}
