@@ -158,7 +158,7 @@ export class GameAnalysisComponent implements OnInit {
 			let eventTime: number = Math.max(0, d.timestamp - startTime),
 				levelKey: string = "level" + d.level,
 				eventType: string = null,
-				// delete possibly recorded higher levels from some previous game
+				// delete possible higher levels from some previous game after game restart
 				nextLevel: number = d.level+1;
 
 			// if the team is not in dataset yet, it is added to game/plan datasets and map
@@ -174,10 +174,10 @@ export class GameAnalysisComponent implements OnInit {
 				plandataset[teamIndex]["start"] = 0;
 			}
 
-			// if there was some data from previous game, delete its events and levels
+			// after restart, if there was some data from previous game, delete its events and levels
 			if ((gamedataset[teamsMap[d.team]]["level" + nextLevel] != undefined)) {
 				// finish of last level from previous game is considered as the start of new game
-				// TODO - solve it as adding event to user log for every new game!
+				// TODO - solve it as adding event to user log for every game restart!!!
 				let events: Event[] = gamedataset[teamsMap[d.team]]["events"],
 					lastEvent: Event = events[events.length-1];		
 				if(lastEvent != undefined) {
@@ -290,7 +290,7 @@ export class GameAnalysisComponent implements OnInit {
 			layers = stack(plandata.teams);
 
 		this.time = planConfig.time;
-		this.planDomain = d3.max(layers[layers.length - 1], function (d: number[]): number { return d[1]; }) + 500; //rezerva na přetečení;
+		this.planDomain = d3.max(layers[layers.length - 1], function (d: number[]): number { return d[1]; }) + 10000; //rezerva na přetečení;
 
 		this.xScale = d3.scaleLinear().rangeRound([0, width]);
 		this.yScale = d3.scaleBand().rangeRound([height, 0]).padding(0.02);
