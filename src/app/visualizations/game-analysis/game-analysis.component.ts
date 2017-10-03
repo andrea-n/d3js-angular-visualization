@@ -159,28 +159,40 @@ export class GameAnalysisComponent implements OnInit {
 				levelKey: string = "level" + d.level,
 				eventType: string = null,
 				// delete possibly recorded higher levels from some previous game
-				tmpLevel: number = d.level+1;
+				nextLevel: number = d.level+1;
 
 			// if the team is not in dataset yet, it is added to game/plan datasets and map
 			if (teamsMap[d.team] == null) {
-				teamsMap[d.team] = gamedataset.length;
-				gamedataset[teamsMap[d.team]] = {};
-				gamedataset[teamsMap[d.team]]["team"] = d.team;
+				let teamIndex: number = gamedataset.length;
+				teamsMap[d.team] = teamIndex;
+				gamedataset[teamIndex] = {};
+				gamedataset[teamIndex]["team"] = d.team;
+				gamedataset[teamIndex]["events"] = [];
+
+				plandataset[teamIndex] = {};
+				plandataset[teamIndex]["team"] = d.team;
+				plandataset[teamIndex]["start"] = 0;
+			}
+
+			// if there was some data from previous game, delete its events and levels
+			if ((gamedataset[teamsMap[d.team]]["level" + nextLevel] != undefined)) {
+				// finish of last level from previous game is considered as the start of new game
+				// TODO - solve it as adding event to user log for every new game!
+				let events: Event[] = gamedataset[teamsMap[d.team]]["events"],
+					lastEvent: Event = events[events.length-1];		
+				if(lastEvent != undefined) {
+					let lastEventTime: number = lastEvent.time;
+					gamedataset[teamsMap[d.team]]["start"] = lastEventTime;
+				}
+				
 				gamedataset[teamsMap[d.team]]["events"] = [];
-
-				plandataset[teamsMap[d.team]] = {};
-				plandataset[teamsMap[d.team]]["team"] = d.team;
-				plandataset[teamsMap[d.team]]["start"] = 0;
+			}
+			while ((gamedataset[teamsMap[d.team]]["level" + nextLevel] != undefined) && (nextLevel <= levels.length)) {
+				delete gamedataset[teamsMap[d.team]]["level" + nextLevel];
+				nextLevel++;
 			}
 
-			while ((gamedataset[teamsMap[d.team]]["level" + tmpLevel] != undefined) && (tmpLevel < levels.length)) {
-				delete gamedataset[teamsMap[d.team]]["level" + tmpLevel];
-				tmpLevel++;
-			}
-			// if there was some previous data, delete also its events
-			if (tmpLevel > (d.level+1)) gamedataset[teamsMap[d.team]]["events"] = [];
-
-			// add level to levels array, if it does not contain it
+			// add level to levels array, if it does not contain it yet
 			if (levels.indexOf(levelKey)  == -1) levels.push(levelKey);
 
 			if (time < d.timestamp) time = d.timestamp;
@@ -257,6 +269,9 @@ export class GameAnalysisComponent implements OnInit {
 			icons: icons,
 			time: gamedata.time
 		});
+
+		let str = JSON.stringify(gamedata);
+		console.log(str);
 	}
 
 	drawPlan(planConfig: PlanConfig): void {

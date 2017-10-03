@@ -1,0 +1,341 @@
+{
+   "currentTime":24379,
+   "levelsCount": 4,
+   "teams":[
+      {
+         "name":"9003574",
+         "events":[
+
+         ],
+         "start":1492,
+         "level1":6,
+         "level2":939
+      },
+      {
+         "name":"9003576",
+         "events":[
+
+         ],
+         "start":1236,
+         "level1":472,
+         "level2":692
+      },
+      {
+         "name":"9003585",
+         "events":[
+
+         ],
+         "start":311,
+         "level1":430
+      },
+      {
+         "name":"9003580",
+         "events":[
+            {
+               "type":"hint",
+               "title":"Hint 3 taken",
+               "time":2009,
+               "level":3
+            },
+            {
+               "type":"hint",
+               "title":"Hint 4 taken",
+               "time":2011,
+               "level":3
+            },
+            {
+               "type":"hint",
+               "title":"Hint 1 taken",
+               "time":2353,
+               "level":3
+            }
+         ],
+         "start":316,
+         "level1":647,
+         "level2":960
+      },
+      {
+         "name":"9003570",
+         "events":[
+            {
+               "type":"hint",
+               "title":"Hint 1 taken",
+               "time":890,
+               "level":1
+            },
+            {
+               "type":"hint",
+               "title":"Hint 2 taken",
+               "time":981,
+               "level":1
+            },
+            {
+               "type":"hint",
+               "title":"Hint 4 taken",
+               "time":2615,
+               "level":3
+            },
+            {
+               "type":"hint",
+               "title":"Hint 3 taken",
+               "time":2618,
+               "level":3
+            }
+         ],
+         "start":371,
+         "level1":986,
+         "level2":1138
+      },
+      {
+         "name":"9003577",
+         "events":[
+            {
+               "type":"skip",
+               "title":"Level cowardly skipped",
+               "time":2745,
+               "level":1
+            },
+            {
+               "type":"skip",
+               "title":"Level cowardly skipped",
+               "time":2754,
+               "level":2
+            },
+            {
+               "type":"skip",
+               "title":"Level cowardly skipped",
+               "time":2757,
+               "level":3
+            }
+         ],
+         "start":405,
+         "level1":108,
+         "level2":8,
+         "level3":3
+      },
+      {
+         "name":"9003573",
+         "events":[
+            {
+               "type":"hint",
+               "title":"Hint 1 taken",
+               "time":22268,
+               "level":1
+            },
+            {
+               "type":"hint",
+               "title":"Hint 2 taken",
+               "time":22521,
+               "level":1
+            },
+            {
+               "type":"solution",
+               "title":"Returned from help level",
+               "time":23286,
+               "level":1
+            },
+            {
+               "type":"hint",
+               "title":"Hint 1 taken",
+               "time":23576,
+               "level":2
+            },
+            {
+               "type":"hint",
+               "title":"Hint 2 taken",
+               "time":23652,
+               "level":2
+            },
+            {
+               "type":"solution",
+               "title":"Returned from help level",
+               "time":23693,
+               "level":2
+            },
+            {
+               "type":"solution",
+               "title":"Returned from help level",
+               "time":23850,
+               "level":2
+            },
+            {
+               "type":"solution",
+               "title":"Returned from help level",
+               "time":24373,
+               "level":2
+            }
+         ],
+         "start":22059,
+         "level1":1362,
+         "level2":956
+      },
+      {
+         "name":"9003590",
+         "events":[
+
+         ],
+         "start":471,
+         "level1":220,
+         "level2":503
+      },
+      {
+         "name":"9003582",
+         "events":[
+
+         ],
+         "start":519,
+         "level1":1054,
+         "level2":672
+      },
+      {
+         "name":"9003575",
+         "events":[
+
+         ],
+         "start":848,
+         "level1":241,
+         "level2":763
+      },
+      {
+         "name":"9003578",
+         "events":[
+            {
+               "type":"hint",
+               "title":"Hint 1 taken",
+               "time":1512,
+               "level":1
+            },
+            {
+               "type":"hint",
+               "title":"Hint 2 taken",
+               "time":1683,
+               "level":1
+            }
+         ],
+         "start":533
+      },
+      {
+         "name":"9003592",
+         "events":[
+
+         ],
+         "start":548,
+         "level1":854,
+         "level2":615
+      },
+      {
+         "name":"9003593",
+         "events":[
+            {
+               "type":"hint",
+               "title":"Hint 1 taken",
+               "time":1734,
+               "level":2
+            },
+            {
+               "type":"hint",
+               "title":"Hint 2 taken",
+               "time":1748,
+               "level":2
+            },
+            {
+               "type":"hint",
+               "title":"Hint 3 taken",
+               "time":2208,
+               "level":3
+            },
+            {
+               "type":"hint",
+               "title":"Hint 4 taken",
+               "time":2212,
+               "level":3
+            },
+            {
+               "type":"hint",
+               "title":"Hint 2 taken",
+               "time":2629,
+               "level":3
+            }
+         ],
+         "start":631,
+         "level1":491,
+         "level2":658
+      },
+      {
+         "name":"9003572",
+         "events":[
+
+         ],
+         "start":642,
+         "level1":401,
+         "level2":513
+      },
+      {
+         "name":"9003579",
+         "events":[
+
+         ],
+         "start":663,
+         "level1":1116
+      },
+      {
+         "name":"9003584",
+         "events":[
+            {
+               "type":"hint",
+               "title":"Hint 1 taken",
+               "time":1772,
+               "level":1
+            },
+            {
+               "type":"hint",
+               "title":"Hint 2 taken",
+               "time":1780,
+               "level":1
+            },
+            {
+               "type":"solution",
+               "title":"Returned from help level",
+               "time":2587,
+               "level":1
+            },
+            {
+               "type":"skip",
+               "title":"Level cowardly skipped",
+               "time":2603,
+               "level":1
+            }
+         ],
+         "start":734,
+         "level1":1869
+      },
+      {
+         "name":"9003591",
+         "events":[
+
+         ],
+         "start":734,
+         "level1":1270,
+         "level2":560
+      },
+      {
+         "name":"9003571",
+         "events":[
+            {
+               "type":"hint",
+               "title":"Hint 1 taken",
+               "time":2067,
+               "level":1
+            }
+         ],
+         "start":980
+      },
+      {
+         "name":"9003581",
+         "events":[
+
+         ],
+         "start":1021
+      }
+   ]
+}

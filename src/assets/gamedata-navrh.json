@@ -1,0 +1,38 @@
+{
+   "currentTime":24379,
+   "levelCount": 4,
+   "teams": [
+      {
+         "name":"9003574",
+         "events": [
+            {
+               "type": "start",
+               "time": 1492
+            },
+            {
+               "type": "levelFinish",
+               "level": 1,
+               "time": 1498
+            },
+            {
+               "type": "hint",
+               "title": "Hint 3 taken",
+               "time": 2009,
+               "level": 3
+            },
+            {
+               "type": "hint",
+               "title": "Hint 4 taken",
+               "time": 2011,
+               "level": 3
+            },
+            {
+               "type": "hint",
+               "name": "Hint 1 taken",
+               "time": 2353,
+               "level": 3
+            }
+         ],
+      }
+   ]
+}
