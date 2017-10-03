@@ -290,7 +290,7 @@ export class GameAnalysisComponent implements OnInit {
 			layers = stack(plandata.teams);
 
 		this.time = planConfig.time;
-		this.planDomain = d3.max(layers[layers.length - 1], function (d: number[]): number { return d[1]; }) + 10000; //rezerva na přetečení;
+		this.planDomain = d3.max(layers[layers.length - 1], function (d: number[]): number { return d[1]; }) + 30000; //rezerva na přetečení;
 
 		this.xScale = d3.scaleLinear().rangeRound([0, width]);
 		this.yScale = d3.scaleBand().rangeRound([height, 0]).padding(0.02);
@@ -537,7 +537,7 @@ export class GameAnalysisComponent implements OnInit {
 	}
 
 	getTimeString(seconds: number): string {
-		let date: Date = new Date();
+		let date: Date = new Date(null);
 
 		date.setSeconds(seconds);
 		
