@@ -37,14 +37,21 @@ interface PlanConfig {
 	data: Plan;
 	element: string;
 	colors: string[];
-	time: number;
+	time: number,
+	padding: Padding,
+	width: number,
+	height: number,
+	estimatedTime: number;
 }
 
 interface GameConfig {
 	data: Game;
 	colors: string[];
 	icons: GenericObject;
-	time: number;
+	time: number,
+	padding: Padding,
+	width: number,
+	height: number;
 }
 
 interface Event {
@@ -97,11 +104,11 @@ export class GameAnalysisComponent implements OnInit {
 
 		let fileIndex: number = 2;
 		setInterval(function (): void {
-			if (fileIndex <= 20) {
+			if (fileIndex <= 50) {
 				this.loadData('assets/user_events_log'+fileIndex+'.csv');
 				fileIndex++;
 			}
-		}.bind(this), 5000);
+		}.bind(this), 2000);
 	}
 
 	loadData(file: string): void {
@@ -138,8 +145,6 @@ export class GameAnalysisComponent implements OnInit {
 	}
 
 	applyData(startTime: number): void {
-		// TODO time plan for each level?
-		let levelTimePlan: number = 1000;
 		let gamedataset: GenericObject[] = [],
 			plandataset: GenericObject[] = [],
 			// stores levels keys for use in d3.stack, in format "level + index" or "start" for start of the game
@@ -153,6 +158,15 @@ export class GameAnalysisComponent implements OnInit {
 			gameColors: string[] = ["transparent", "#1c89b8", "#20ac4c", "#ff9d3c", "#fc5248"],
 			// level 0 transparent color, other modulo i (transparent exlude)
 			planColors: string[] = ["transparent", "#0e6f90", "#158136", "#ec7e26", "#d82f36"];
+
+		// TODO time plan for each level?
+		let levelTimePlan: number = 1000;
+		// TODO a priori knowledge about count of levels?
+		let levelCount: number = 4;
+		for (var l: number = 1; l <= levelCount; l++) {
+			let levelKey = 'level'+l;
+		    levels.push(levelKey);
+		}
 
 		this.data.forEach(function (d: DataEntry): void {
 			let eventTime: number = Math.max(0, d.timestamp - startTime),
@@ -256,32 +270,41 @@ export class GameAnalysisComponent implements OnInit {
 			"teams" : plandataset
 		}
 
+		let padding: Padding = { top: 50, right: 20, bottom: 20, left: 80 },
+			width: number = 1000 - padding.left - padding.right,
+			height: number = 600 - padding.top - padding.bottom;
+
 		this.drawPlan({
 			data: plandata,
 			element: 'chart',
 			colors: planColors,
 			time: 0,
+			padding: padding,
+			width: width,
+			height: height,
+			estimatedTime: 2000*4
 		});
 
 		this.drawGame({
 			data: gamedata,
 			colors: gameColors,
 			icons: icons,
-			time: gamedata.time
+			time: gamedata.time,
+			padding: padding,
+			width: width,
+			height: height
 		});
-
-		let str = JSON.stringify(gamedata);
-		console.log(str);
 	}
 
 	drawPlan(planConfig: PlanConfig): void {
 		let d3: D3 = this.d3,
 			element: string = planConfig.element,
 			plandata: Plan = planConfig.data,
-			padding: Padding = { top: 50, right: 20, bottom: 20, left: 80 },
-			width: number = 1000 - padding.left - padding.right,
-			height: number = 600 - padding.top - padding.bottom,
+			padding: Padding = planConfig.padding,
+			width: number = planConfig.width,
+			height: number = planConfig.height,
 			timeWidth: number = 130,
+			estimatedTime: number = planConfig.estimatedTime,
 			getColor: ScaleOrdinal<string, string> = d3.scaleOrdinal(planConfig.colors),
 			// TODO type
 			stack = d3.stack()
@@ -290,7 +313,7 @@ export class GameAnalysisComponent implements OnInit {
 			layers = stack(plandata.teams);
 
 		this.time = planConfig.time;
-		this.planDomain = d3.max(layers[layers.length - 1], function (d: number[]): number { return d[1]; }) + 30000; //rezerva na přetečení;
+		this.planDomain = Math.max(estimatedTime, d3.max(layers[layers.length - 1], function (d: number[]): number { return d[1]; })) + 500; // + 5000 = rezerva na přetečení;
 
 		this.xScale = d3.scaleLinear().rangeRound([0, width]);
 		this.yScale = d3.scaleBand().rangeRound([height, 0]).padding(0.02);
@@ -367,15 +390,6 @@ export class GameAnalysisComponent implements OnInit {
 			.attr("transform", "translate(0,0)")
 			.call(this.yAxis);
 
-		// append time axis
-		this.timeline = this.svg.append("line")
-			.attr("class", "timeline")
-			.attr("x1", this.xScale(this.time)+2)
-			.attr("y1", 0)
-			.attr("x2", this.xScale(this.time)+2)
-			.attr("y2", height)
-			.attr("stroke-width", 3);
-
 		// append time
 		this.timeText = this.svg.append("text")
 			.attr("class", "time")
@@ -389,6 +403,9 @@ export class GameAnalysisComponent implements OnInit {
 			gamedata: Game = gameConfig.data,
 			icons: GenericObject = gameConfig.icons,
 			colors: string[] = gameConfig.colors,
+			padding: Padding = gameConfig.padding,
+			width: number = gameConfig.width,
+			height: number = gameConfig.height,
 			getColor: ScaleOrdinal<string, string> = d3.scaleOrdinal(colors),
 			stack = d3.stack()
 				.keys(gamedata.keys)
@@ -441,10 +458,6 @@ export class GameAnalysisComponent implements OnInit {
 				}
 			});
 
-		// update time line
-		this.timeline.attr("x1", this.xScale(this.time)+2)
-			.attr("x2", this.xScale(this.time)+2);
-
 		// update time
 		this.timeText.text(this.getTimeString(this.time));
 
@@ -483,6 +496,15 @@ export class GameAnalysisComponent implements OnInit {
 
 		// move bounds to top
 		this.bounds.raise();
+
+		// append time axis
+		this.timeline = this.svg.append("line")
+			.attr("class", "timeline")
+			.attr("x1", this.xScale(this.time)+2)
+			.attr("y1", 0)
+			.attr("x2", this.xScale(this.time)+2)
+			.attr("y2", height)
+			.attr("stroke-width", 3);
 	}
 
 	updatePlan(layersdata: NumericObject): void {

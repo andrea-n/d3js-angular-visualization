@@ -156,3 +156,6 @@ uco,datetime,time,level,event
 9003571,2017-07-10 16:29:16,00:30:11,2,Wrong flag submited:https://wpvulndb.com/vulnerabilities/8126
 9003571,2017-07-10 16:29:24,00:30:20,2,Wrong flag submited:8126
 9003571,2017-07-10 16:29:44,00:30:39,2,Level cowardly skipped
+9003584,2017-07-10 16:30:00,00:09:59,4,Hint 3 taken
+9003575,2017-07-10 16:30:19,00:48:57,3,Hint 1 taken
+9003575,2017-07-10 16:30:22,00:49:01,3,Hint 2 taken
