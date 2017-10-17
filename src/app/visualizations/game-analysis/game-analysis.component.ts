@@ -47,6 +47,7 @@ interface PlanConfig {
 interface GameConfig {
 	data: Game;
 	colors: string[];
+	currentLevelColor: string;
 	icons: GenericObject;
 	time: number,
 	padding: Padding,
@@ -157,7 +158,8 @@ export class GameAnalysisComponent implements OnInit {
 			// level 0 transparent color, other modulo i (transparent exlude)
 			gameColors: string[] = ["transparent", "#1c89b8", "#20ac4c", "#ff9d3c", "#fc5248"],
 			// level 0 transparent color, other modulo i (transparent exlude)
-			planColors: string[] = ["transparent", "#0e6f90", "#158136", "#ec7e26", "#d82f36"];
+			planColors: string[] = ["transparent", "#0e6f90", "#158136", "#ec7e26", "#d82f36"],
+			darkColor: string = '#2f2f2f';
 
 		// TODO time plan for each level?
 		let levelTimePlan: number = 1000;
@@ -288,6 +290,7 @@ export class GameAnalysisComponent implements OnInit {
 		this.drawGame({
 			data: gamedata,
 			colors: gameColors,
+			currentLevelColor: darkColor,
 			icons: icons,
 			time: gamedata.time,
 			padding: padding,
@@ -403,6 +406,7 @@ export class GameAnalysisComponent implements OnInit {
 			gamedata: Game = gameConfig.data,
 			icons: GenericObject = gameConfig.icons,
 			colors: string[] = gameConfig.colors,
+			currentLevelColor: string = gameConfig.currentLevelColor,
 			padding: Padding = gameConfig.padding,
 			width: number = gameConfig.width,
 			height: number = gameConfig.height,
@@ -483,12 +487,14 @@ export class GameAnalysisComponent implements OnInit {
 				}
 				return Math.max(0, x);
 			}.bind(this))
-			.attr("y", function (): number {
+			.attr("y", function (d: GenericObject): number {
 				let teamStruct: DataEntry = <DataEntry>d3.select(this.parentNode).datum();
 				return yScale(teamStruct.team) + yScale.bandwidth()*0.7;
 			})
 			.attr("fill", function (d: GenericObject): string {
-				return getColor(d.level);
+				let teamStruct: DataEntry = <DataEntry>d3.select(this.parentNode).datum();
+				// check if the event is in current unfinished level
+				return (teamStruct['level'+(d.level)] == undefined)? currentLevelColor : getColor(d.level);
 			})
 			.attr("font-family","FontAwesome")
 			.attr('font-size', function (): number { return this.yScale.bandwidth()/2; }.bind(this) )
